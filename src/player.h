@@ -97,6 +97,15 @@ struct PlayerControl
 	float forw_move_joystick_axis;
 };
 
+enum CameraMode {CAMERA_MODE_FIRST, CAMERA_MODE_THIRD, CAMERA_MODE_THIRD_FRONT};
+
+const struct EnumString es_CameraModes[] =
+{
+	{CAMERA_MODE_FIRST,       "first"},
+	{CAMERA_MODE_THIRD,       "third"},
+	{CAMERA_MODE_THIRD_FRONT, "front"}
+};
+
 class Map;
 struct CollisionInfo;
 struct HudElement;
@@ -168,11 +177,14 @@ public:
 	PlayerControl control;
 	const PlayerControl& getPlayerControl() { return control; }
 
+	void setCameraModes(std::set<CameraMode> &modes) { m_camera_modes = modes; }
+	const std::set<CameraMode> &getCameraModes() const { return m_camera_modes; }
+
 	u32 keyPressed;
 
-	HudElement* getHud(u32 id);
+	HudElement *getHud(u32 id);
 	u32         addHud(HudElement* hud);
-	HudElement* removeHud(u32 id);
+	HudElement *removeHud(u32 id);
 	void        clearHud();
 
 	u32 hud_flags;
@@ -182,6 +194,7 @@ protected:
 	v3f m_speed;
 
 	std::vector<HudElement *> hud;
+	std::set<CameraMode> m_camera_modes;
 private:
 	// Protect some critical areas
 	// hud for example can be modified by EmergeThread

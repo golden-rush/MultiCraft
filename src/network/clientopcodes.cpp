@@ -69,7 +69,7 @@ const ToClientCommandHandler toClientCommandTable[TOCLIENT_NUM_MSG_TYPES] =
 	null_command_handler,
 	null_command_handler,
 	null_command_handler,
-	null_command_handler,
+	{ "TOCLIENT_CAMERA_MODES",             TOCLIENT_STATE_CONNECTED, &Client::handleCommand_CameraModes }, // 0x2C
 	null_command_handler,
 	null_command_handler,
 	{ "TOCLIENT_CHAT_MESSAGE",             TOCLIENT_STATE_CONNECTED, &Client::handleCommand_ChatMessage }, // 0x30

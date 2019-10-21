@@ -1968,6 +1968,26 @@ void Server::SendMovePlayer(u16 peer_id)
 	Send(&pkt);
 }
 
+//void Server::SendCameraModes(RemotePlayer *player, std::set<CameraMode> modes)
+void Server::SendCameraModes(u16 peer_id, std::set<CameraMode> modes)
+{
+	/*session_t peer_id = player->getPeerId();
+	if (peer_id == PEER_ID_INEXISTENT)
+		return;*/
+
+ 	NetworkPacket pkt(TOCLIENT_CAMERA_MODES, 0, peer_id);
+
+ 	// Serialise camera modes for sending over the network
+	u16 serialised_modes = 0;
+	auto it = modes.begin();
+	while (it != modes.end()) {
+		serialised_modes |= (1 << *it);
+	}
+
+ 	pkt << serialised_modes;
+	Send(&pkt);
+}
+
 void Server::SendLocalPlayerAnimations(u16 peer_id, v2s32 animation_frames[4], f32 animation_speed)
 {
 	NetworkPacket pkt(TOCLIENT_LOCAL_PLAYER_ANIMATIONS, 0,

@@ -526,7 +526,7 @@ void Camera::drawWieldedTool(irr::core::matrix4* translation)
 	// Draw the wielded node (in a separate scene manager)
 	scene::ICameraSceneNode* cam = m_wieldmgr->getActiveCamera();
 	cam->setAspectRatio(m_cameranode->getAspectRatio());
-	cam->setFOV(72.0*M_PI/180.0);
+	cam->setFOV(72.0 * M_PI / 180.0);
 	cam->setNearValue(10);
 	cam->setFarValue(1000);
 	if (translation != NULL)
@@ -542,6 +542,20 @@ void Camera::drawWieldedTool(irr::core::matrix4* translation)
 		cam->setTarget(focusPoint);
 	}
 	m_wieldmgr->drawAll();
+}
+
+void Camera::toggleCameraMode()
+{
+	LocalPlayer *player = client->getEnv().getLocalPlayer();
+	std::set<CameraModes> camera_modes = player->getCameraModes();
+
+ 	auto it = camera_modes.find(m_camera_mode);
+	if (it == camera_modes.end()) {
+		m_camera_mode = *camera_modes.begin();
+		return;
+	}
+
+ 	m_camera_mode = *++it;
 }
 
 void Camera::drawNametags()

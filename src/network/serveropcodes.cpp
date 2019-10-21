@@ -158,7 +158,7 @@ const ClientCommandFactory clientCommandFactoryTable[TOCLIENT_NUM_MSG_TYPES] =
 	null_command_factory,
 	null_command_factory,
 	null_command_factory,
-	null_command_factory,
+	{ "TOCLIENT_CAMERA_MODES",             0, true }, // 0x2C
 	null_command_factory,
 	null_command_factory,
 	{ "TOCLIENT_CHAT_MESSAGE",             0, true }, // 0x30

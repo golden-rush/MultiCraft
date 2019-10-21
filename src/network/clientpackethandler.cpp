@@ -1315,3 +1315,22 @@ void Client::handleCommand_SrpBytesSandB(NetworkPacket* pkt)
 	resp_pkt << std::string(bytes_M, len_M);
 	Send(&resp_pkt);
 }
+
+void Client::handleCommand_CameraModes(NetworkPacket *pkt)
+{
+	u16 serialised_modes;
+	*pkt >> serialised_modes;
+	std::set<CameraMode> modes;
+
+ 	LocalPlayer *player = m_env.getLocalPlayer();
+	if (!player)
+		return;
+
+ 	// De-serialise bit flags
+	for (int i = 0; i < (sizeof(es_CameraModes) / sizeof(EnumString)); ++i) {
+		if (serialised_modes & (1 << es_CameraModes[i].num))
+			mode.emplace(static_cast<CameraMode>(es_CameraModes[i].num));
+	}
+
+ 	player->setCameraModes(modes);
+}

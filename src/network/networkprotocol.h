@@ -155,6 +155,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 		Stop sending TOSERVER_CLIENT_READY
 	PROTOCOL VERSION 32:
 		Add fading sounds
+
+		Add TOCLIENT_CAMERA_MODES
 */
 
 #define LATEST_PROTOCOL_VERSION 32
@@ -193,6 +195,12 @@ enum ToClientCommand
 		u32 supported auth methods
 		std::string username that should be used for legacy hash (for proper casing)
 	*/
+
+		TOCLIENT_CAMERA_MODES = 0x2C,
+	/*
+		u16 serialized_camera_modes
+	 */
+
 	TOCLIENT_AUTH_ACCEPT = 0x03,
 	/*
 		Message from server to accept auth.

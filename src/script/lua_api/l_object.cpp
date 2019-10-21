@@ -1859,6 +1859,58 @@ int ObjectRef::l_get_day_night_ratio(lua_State *L)
 	return 1;
 }
 
+int ObjectRef::l_set_camera_modes(lua_State *L)
+{
+	NO_MAP_LOCK_REQUIRED;
+	ObjectRef *ref = checkobject(L, 1);
+	RemotePlayer *player = getplayer(ref);
+	if (!player)
+		return 0;
+
+ 	if (!lua_istable(L, 1))
+		return 0;
+
+ 	std::set<CameraMode> modes;
+
+ 	lua_pushnil(L);
+	while (lua_next(L, 1) != 0) {
+		int enum_val;
+		if (string_to_enum(es_CameraModes, enum_val, lua_tostring(L, -2))) {
+			if (readParam<bool>(L, -1, true))
+				modes.emplace(static_cast<CameraMode>(enum_val));
+		}
+		lua_pop(L, 1);
+	}
+
+ 	// If mod passed empty table, add CAMERA_MODE_FIRST by default
+	/*if (modes.count() == 0)
+		modes.emplace(CAMERA_MODE_FIRST);*/
+
+ 	player->setCameraModes(modes);
+	getServer(L)->SendCameraModes(player, modes);
+	return 0;
+}
+
+ int ObjectRef::l_get_camera_modes(lua_State *L)
+{
+	NO_MAP_LOCK_REQUIRED;
+	ObjectRef *ref = checkobject(L, 1);
+	RemotePlayer *player = getplayer(ref);
+	if (!player)
+		return 0;
+
+ 	std::set<CameraMode> modes = player->getCameraModes();
+	auto it = modes.begin();
+
+ 	lua_newtable(L);
+	for (int i = 0; i < (sizeof(es_CameraModes) / sizeof(EnumString)); ++i) {
+		lua_pushboolean(modes.find(es_CameraModes[i].num) != modes.end());
+		lua_setfield(L, -2, es_CameraModes[i].str);
+	}
+
+ 	return 1;
+}
+
 ObjectRef::ObjectRef(ServerActiveObject *object):
 	m_object(object)
 {
@@ -2005,5 +2057,7 @@ const luaL_Reg ObjectRef::methods[] = {
 	luamethod(ObjectRef, get_local_animation),
 	luamethod(ObjectRef, set_eye_offset),
 	luamethod(ObjectRef, get_eye_offset),
+	luamethod(ObjectRef, set_camera_modes),
+	luamethod(ObjectRef, get_camera_modes),
 	{0,0}
 };

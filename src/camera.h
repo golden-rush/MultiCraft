@@ -24,6 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "inventory.h"
 #include "mesh.h"
 #include "client/tile.h"
+#include "player.h"
 #include "util/numeric.h"
 #include <ICameraSceneNode.h>
 #include <ISceneNode.h>
@@ -49,8 +50,6 @@ struct Nametag {
 	std::string nametag_text;
 	video::SColor nametag_color;
 };
-
-enum CameraMode {CAMERA_MODE_FIRST, CAMERA_MODE_THIRD, CAMERA_MODE_THIRD_FRONT};
 
 /*
 	Client camera class, manages the player and camera scene nodes, the viewing distance
@@ -136,14 +135,7 @@ public:
 	void drawWieldedTool(irr::core::matrix4* translation=NULL);
 
 	// Toggle the current camera mode
-	void toggleCameraMode() {
-		if (m_camera_mode == CAMERA_MODE_FIRST)
-			m_camera_mode = CAMERA_MODE_THIRD;
-		else if (m_camera_mode == CAMERA_MODE_THIRD)
-			m_camera_mode = CAMERA_MODE_THIRD_FRONT;
-		else
-			m_camera_mode = CAMERA_MODE_FIRST;
-	}
+	void toggleCameraMode();
 
 	// Set the current camera mode
 	inline void setCameraMode(CameraMode mode)
@@ -176,7 +168,7 @@ private:
 	WieldMeshSceneNode* m_wieldnode;
 
 	// draw control
-	MapDrawControl& m_draw_control;
+	MapDrawControl &m_draw_control;
 
 	Client *m_client;
 	video::IVideoDriver *m_driver;

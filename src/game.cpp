@@ -3495,8 +3495,8 @@ void Game::updateCamera(u32 busy_time, f32 dtime)
 
 		camera->toggleCameraMode();
 
-		playercao->setVisible(camera->getCameraMode() > CAMERA_MODE_FIRST);
-		playercao->setChildrenVisible(camera->getCameraMode() > CAMERA_MODE_FIRST);
+		playercao->setVisible(camera->getCameraMode() != CAMERA_MODE_FIRST);
+		playercao->setChildrenVisible(camera->getCameraMode() != CAMERA_MODE_FIRST);
 	}
 
 	float full_punch_interval = playeritem_toolcap.full_punch_interval;
@@ -4274,7 +4274,7 @@ void Game::updateFrame(ProfilerGraph *graph, RunStats *stats, f32 dtime,
 					item = hlist->getItem(0);
 			}
 			camera->wield(item);
-			
+
 			// Show item description as statustext
 			std::string item_desc = item.getDefinition(itemdef_manager).description;
 			if (wield_name != item_desc) {

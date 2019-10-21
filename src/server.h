@@ -447,6 +447,9 @@ private:
 
 	void sendDetachedInventory(const std::string &name, u16 peer_id);
 	void sendDetachedInventories(u16 peer_id);
+	
+	//void SendCameraModes(RemotePlayer *player, std::set<CameraMode> modes);
+	void SendCameraModes(u16 peer_id, std::set<CameraMode> modes);
 
 	// Adds a ParticleSpawner on peer with peer_id (PEER_ID_INEXISTENT == all)
 	void SendAddParticleSpawner(u16 peer_id, u16 protocol_version,

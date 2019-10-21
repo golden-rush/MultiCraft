@@ -1087,6 +1087,20 @@ bool string_to_enum(const EnumString *spec, int &result,
 }
 
 /******************************************************************************/
+bool enum_to_string(const EnumString *spec, int &num, const std::string &result)
+{
+	const EnumString *esp = spec;
+	while (esp->num) {
+		if (num == esp->num) {
+			result = std::string(esp->str);
+			return true;
+		}
+		esp++;
+	}
+	return false;
+}
+
+/******************************************************************************/
 ItemStack read_item(lua_State* L, int index, IItemDefManager *idef)
 {
 	if(index < 0)
