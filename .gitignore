@@ -41,9 +41,6 @@ desktop.ini
 /screenshots
 /sounds
 /mods/*
-!/mods/minetest/
-/mods/minetest/*
-!/mods/minetest/mods_here.txt
 /worlds
 /world/
 /clientmods/*
@@ -68,6 +65,8 @@ Makefile
 !build/android/deprecated/Makefile
 cmake_install.cmake
 CMakeCache.txt
+/CMakeDoxyfile.in
+/CMakeDoxygenDefaults.cmake
 CPackConfig.cmake
 CPackSourceConfig.cmake
 src/android_version.h
