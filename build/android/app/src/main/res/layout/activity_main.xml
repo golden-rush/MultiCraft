@@ -47,4 +47,5 @@
         android:textColor="#FEFEFE"
         android:visibility="gone" />
 
+
 </RelativeLayout>

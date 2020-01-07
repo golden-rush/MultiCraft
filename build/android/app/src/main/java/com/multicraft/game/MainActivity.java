@@ -89,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements WVersionManager.A
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_main);
+
+
+
         pf = PreferencesHelper.getInstance(this);
         IntentFilter filter = new IntentFilter(UnzipService.ACTION_UPDATE);
         registerReceiver(myReceiver, filter);
@@ -101,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements WVersionManager.A
         permission.setListener(this);
         permission.askPermissions();*/
         askGdpr();
+
+
     }
 
     @Override

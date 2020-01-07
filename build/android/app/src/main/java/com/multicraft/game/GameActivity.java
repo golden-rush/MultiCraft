@@ -39,6 +39,8 @@ public class GameActivity extends NativeActivity {
     private int messageReturnCode;
     private String messageReturnValue;
     private int height, width;
+
+
     /*private boolean consent;
     private boolean isMultiPlayer;*/
 
@@ -47,6 +49,9 @@ public class GameActivity extends NativeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         Bundle bundle = getIntent().getExtras();
         height = bundle != null ? bundle.getInt("height", 0) : getResources().getDisplayMetrics().heightPixels;
         width = bundle != null ? bundle.getInt("width", 0) : getResources().getDisplayMetrics().widthPixels;
@@ -55,6 +60,8 @@ public class GameActivity extends NativeActivity {
         messageReturnCode = -1;
         messageReturnValue = "";
         /*new AdInitTask().execute();*/
+
+
     }
 
     private void makeFullScreen() {
