@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.app.ActivityManager;
 import android.app.Dialog;
@@ -39,10 +39,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.multicraft.game.PreferencesHelper.TAG_BUILD_NUMBER;
-import static com.multicraft.game.PreferencesHelper.TAG_CONSENT_ASKED;
-import static com.multicraft.game.PreferencesHelper.TAG_LAUNCH_TIMES;
-import static com.multicraft.game.PreferencesHelper.TAG_SHORTCUT_CREATED;
+import static com.easycraft.game.PreferencesHelper.TAG_BUILD_NUMBER;
+import static com.easycraft.game.PreferencesHelper.TAG_CONSENT_ASKED;
+import static com.easycraft.game.PreferencesHelper.TAG_LAUNCH_TIMES;
+import static com.easycraft.game.PreferencesHelper.TAG_SHORTCUT_CREATED;
 
 public class MainActivity extends AppCompatActivity implements WVersionManager.ActivityListener, CallBackListener, DialogsCallback {
     public final static Map<String, String> zipLocations = new HashMap<>();

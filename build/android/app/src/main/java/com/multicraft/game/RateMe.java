@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.app.Dialog;
 import android.content.Context;

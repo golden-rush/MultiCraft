@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -29,7 +29,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static com.multicraft.game.MainActivity.UPDATE_LINK;
+import static com.easycraft.game.MainActivity.UPDATE_LINK;
 
 class WVersionManager implements DialogsCallback {
     private final CustomTagHandler customTagHandler;

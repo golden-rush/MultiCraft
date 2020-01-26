@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.os.AsyncTask;
 import android.view.View;

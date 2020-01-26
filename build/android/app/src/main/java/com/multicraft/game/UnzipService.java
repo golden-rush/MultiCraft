@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -21,17 +21,17 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
-import static com.multicraft.game.MainActivity.zipLocations;
+import static com.easycraft.game.MainActivity.zipLocations;
 
 public class UnzipService extends IntentService {
-    public static final String ACTION_UPDATE = "com.multicraft.game.UPDATE";
+    public static final String ACTION_UPDATE = "com.easycraft.game.UPDATE";
     public static final String EXTRA_KEY_IN_FILE = "file";
     public static final String ACTION_PROGRESS = "progress";
     private final int id = 1;
     private NotificationManager mNotifyManager;
 
     public UnzipService() {
-        super("com.multicraft.game.UnzipService");
+        super("com.easycraft.game.UnzipService");
     }
 
     private void isDir(String dir, String unzipLocation) {
@@ -52,7 +52,7 @@ public class UnzipService extends IntentService {
 
     private void createNotification() {
         // There are hardcoding only for show it's just strings
-        String name = "com.multicraft.game";
+        String name = "com.easycraft.game";
         String channelId = "MultiCraft channel"; // The user-visible name of the channel.
         String description = "notifications from MultiCraft"; // The user-visible description of the channel.
         Notification.Builder builder;

@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -13,13 +13,13 @@ import android.view.WindowManager;
 
 import com.bugsnag.android.Bugsnag;
 
-import static com.multicraft.game.PreferencesHelper.TAG_BUILD_NUMBER;
-import static com.multicraft.game.PreferencesHelper.getInstance;
+import static com.easycraft.game.PreferencesHelper.TAG_BUILD_NUMBER;
+import static com.easycraft.game.PreferencesHelper.getInstance;
 
-/*import static com.multicraft.game.AdManager.initAd;
-import static com.multicraft.game.AdManager.setAdsCallback;
-import static com.multicraft.game.AdManager.startAd;
-import static com.multicraft.game.AdManager.stopAd;*/
+/*import static com.easycraft.game.AdManager.initAd;
+import static com.easycraft.game.AdManager.setAdsCallback;
+import static com.easycraft.game.AdManager.startAd;
+import static com.easycraft.game.AdManager.stopAd;*/
 
 public class GameActivity extends NativeActivity {
     static {

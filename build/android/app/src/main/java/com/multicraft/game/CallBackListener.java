@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 interface CallBackListener {
     void updateViews(int text, int textVisibility, int progressVisibility);

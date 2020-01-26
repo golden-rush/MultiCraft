@@ -4,13 +4,13 @@
     <!-- подготовка к запуску -->
     <string name="rm_old">Подготовка к обновлению&#8230;</string>
     <string name="loading">Загрузка&#8230;</string>
-    <string name="notification_title">Загрузка East Craft</string>
+    <string name="notification_title">Загрузка Easy Craft</string>
     <string name="notification_description">Осталось меньше минуты&#8230;</string>
     <string name="restart">Произошла ошибка, игра будет перезапущена автоматически</string>
     <string name="no_space">Недостаточно места для записи файлов игры, пожалуйста освободите место в памяти</string>
 
     <!-- диалог оценки -->
-    <string name="rta_dialog_title">Оцените East Craft!</string>
+    <string name="rta_dialog_title">Оцените Easy Craft!</string>
     <string name="rate_title">Название</string>
     <string name="rate_description">Описание</string>
     <string name="rate_submit">ОЦЕНИТЬ</string>
@@ -23,7 +23,7 @@
     <string name="update">Обновить</string>
 
     <!-- диалог отсутствия подключения -->
-    <string name="conn_message">Для полноценной игры, East Craft требует подключение к интернету.\nВ противном случае невозможно обновление игры, а так же не доступен мультиплеер!</string>
+    <string name="conn_message">Для полноценной игры, Easy Craft требует подключение к интернету.\nВ противном случае невозможно обновление игры, а так же не доступен мультиплеер!</string>
     <string name="conn_wifi">Wi-Fi</string>
     <string name="conn_mobile">3G/4G</string>
 

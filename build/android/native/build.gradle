@@ -32,6 +32,15 @@ android {
 		}
 	}
 
+signingConfigs {
+    release {
+      storeFile file("/home/parallels/Keystore/craft.jks")
+      storePassword "666666"
+      keyAlias "easycraft"
+      keyPassword "666666"
+    }
+  }
+
 	buildTypes {
 		release {
 			externalNativeBuild {
@@ -39,6 +48,7 @@ android {
 					arguments 'NDEBUG=1'
 				}
 			}
+			signingConfig signingConfigs.release
 		}
 	}
 }

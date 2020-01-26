@@ -108,7 +108,7 @@ namespace porting {
 			exit(-1);
 		}
 
-		nativeActivity = findClass("com/multicraft/game/GameActivity");
+		nativeActivity = findClass("com/easycraft/game/GameActivity");
 		if (nativeActivity == nullptr) {
 			errorstream <<
 			            "porting::initAndroid unable to find java native activity class" <<
@@ -186,7 +186,7 @@ namespace porting {
 		path_share = getAndroidPath(nativeActivity, app_global->activity->clazz, mt_getAbsPath,
 		                            "getFilesDir");
 		path_user = getAndroidPath(cls_Env, nullptr, mt_getAbsPath,
-		                           "getExternalStorageDirectory") + DIR_DELIM + "Android/data/com.multicraft.game/files";
+		                           "getExternalStorageDirectory") + DIR_DELIM + "Android/data/com.easycraft.game/files";
 		path_locale = path_share + DIR_DELIM + "locale";
 		path_cache = getAndroidPath(nativeActivity, app_global->activity->clazz, mt_getAbsPath,
 		                            "getCacheDir");

@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 interface DialogsCallback {
     void onPositive(String source);

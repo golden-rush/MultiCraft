@@ -1,4 +1,4 @@
-package com.multicraft.game;
+package com.easycraft.game;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
