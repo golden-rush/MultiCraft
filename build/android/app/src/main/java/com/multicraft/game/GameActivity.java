@@ -24,7 +24,7 @@ import static com.easycraft.game.AdManager.stopAd;*/
 public class GameActivity extends NativeActivity {
     static {
         try {
-            System.loadLibrary("MultiCraft");
+            System.loadLibrary("EasyCraft");
         } catch (UnsatisfiedLinkError e) {
             Bugsnag.notify(e);
         } catch (IllegalArgumentException i) {
